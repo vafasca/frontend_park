@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Employee } from '../models/employee.interface';
+import { Employee } from 'src/app/login/Models/employees.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class ClientService {
 
   private apiURI = "http://localhost:8081/api/v1/clients";
   constructor(private http: HttpClient) { }

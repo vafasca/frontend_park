@@ -1,1 +1,52 @@
-<p>logistics works!</p>
+    <div class="employee-container">
+        <div class="title">Clients</div>
+        <div class="add-employee">
+        <button (click)="addNewEmployee()">Register</button>
+    </div>
+
+    <div  class="add-form">
+        <label for="newName">Nombre:</label>
+        <input id="newName"  />
+    
+        <label for="newCi">CI:</label>
+        <input id="newCi"  />
+    
+        <!-- Agrega otros campos del formulario según sea necesario -->
+    
+        <button (click)="createEmployee()">Crear Cliente</button>
+    </div>
+    
+    
+    <div class="employee-list" >
+      <div class="search-bar">
+            <input [(ngModel)]="searchTerm" placeholder="Buscar empleado..." />
+            <button (click)="searchEmployees()">Buscar</button>
+      </div>
+
+      <div class="employee-header">
+        <div class="header-item">Name</div>
+        <div class="header-item">CI</div>
+        <div class="header-item">Email</div>
+        <div class="header-item">Telf</div>
+        <div class="header-item">Age</div>
+        <div class="header-item">Height</div>
+        <div class="header-item">Promotion</div>
+        <div class="header-item">Actions</div>
+      </div>
+      <div  class="employee-row">
+        <div class="row-item">a</div>
+        <div class="row-item">a</div>
+        <div class="row-item">a</div>
+        <div class="row-item">a</div>
+        <div class="row-item">a</div>
+        <div class="row-item">a</div>
+        <div class="row-item">a</div>
+        <div class="row-item">
+          <!-- Aquí puedes colocar tus opciones de CRUD -->
+          <button (click)="editEmployee()">Editar</button>
+          <button (click)="deleteEmployee()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

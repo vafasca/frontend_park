@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from './service/employee.service';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-logistics',
@@ -9,10 +7,27 @@ import { tap } from 'rxjs/operators';
 })
 export class LogisticsComponent implements OnInit {
 
+  searchTerm: string = '';
   constructor() { }
 
   ngOnInit(): void {}
+  editEmployee(){
 
+  }
 
+  deleteEmployee(){
 
+  }
+
+  addNewEmployee(){
+
+  }
+
+  searchEmployees(){
+
+  }
+
+  createEmployee(){
+
+  }
 }
