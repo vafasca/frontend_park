@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://th.bing.com/th/id/R.00cfbface0b6328d3b3f04defaf1ff07?rik=B17y7zw6WU6f7w&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fen%2fc%2fcf%2fGyppeswick_park_panorama.jpg&ehk=dcE3xP%2bXXQoUGfVY8tkQ8jZFNcX3R1vn6wJkFWYM87k%3d&risl=&pid=ImgRaw&r=0');
+    background-size: cover;
+}
+.login-container {
+    width: 300px;
+    padding: 16px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 100px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.login-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.login-container button:hover {
+    opacity: 0.8;
+}
