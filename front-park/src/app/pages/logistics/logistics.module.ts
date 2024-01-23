@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LogisticsRoutingModule } from './logistics-routing.module';
 import { LogisticsComponent } from './logistics.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     LogisticsRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LogisticsModule { }

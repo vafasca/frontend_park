@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from './service/clients.service';
 import { Client } from './models/clients.interface';
 import { tap } from 'rxjs/operators';
-import { Employee } from 'src/app/login/Models/employees.interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-logistics',
@@ -12,10 +12,21 @@ import { Employee } from 'src/app/login/Models/employees.interface';
 export class LogisticsComponent implements OnInit {
 
   clients!: Client[];
+  client!: Client;
   originalClients!: Client[];
   searchTerm: string;
-  constructor(private clientSvc: ClientService) {
+  clientForm!: FormGroup;
+  constructor(private clientSvc: ClientService, private fb:FormBuilder) {
     this.searchTerm = "";
+    this.clientForm = this.fb.group({
+      name: ['', Validators.required],
+      ci: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required],
+      age: ['', Validators.required],
+      height: ['', Validators.required]
+    });
+  
    }
 
    searchEntity() {
@@ -31,20 +42,31 @@ export class LogisticsComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.clientSvc.getEmployees().pipe(
+    this.clientSvc.getClients().pipe(
       tap((clients: Client[]) => {this.clients = clients; this.originalClients = this.clients;})
     ).subscribe();
   }
-  editEmployee(){
-
+  editClient(){
+    console.log("editando")
   }
 
   deleteEmployee(){
 
   }
 
-  addNewEmployee(employee: Employee){
-    this.clientSvc.addEmployee(employee).subscribe(res => {console.log(employee)});
+  addNewClient(): void{
+    if(this.clientForm.valid){
+        this.clientSvc.addClient(this.clientForm.value).subscribe(res => {console.log(res);alert("Cliente Registrado"); this.updateClients();})
+    }
+  }
+
+  updateClients(): void {
+    this.clientSvc.getClients().pipe(
+      tap((clients: Client[]) => {
+        this.clients = clients;
+        this.originalClients = [...this.clients];
+      })
+    ).subscribe();
   }
 
   searchEmployees(){

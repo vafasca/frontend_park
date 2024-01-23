@@ -12,12 +12,12 @@ export class ClientService {
   private apiURI = "http://localhost:8081/api/v1/clients";
   constructor(private http: HttpClient) { }
 
-  getEmployees():Observable<Client[]>{
+  getClients():Observable<Client[]>{
     return this.http.get<Client[]>(this.apiURI);
   }
 
-  addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.apiURI, employee);
+  addClient(employee: Client): Observable<Client> {
+    return this.http.post<Client>(this.apiURI, employee);
   }
    
 }
