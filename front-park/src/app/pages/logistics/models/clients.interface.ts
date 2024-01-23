@@ -5,6 +5,6 @@ export interface Client {
     email: string,
     phone: string,
     age: number,
-    height: number
-
+    height: number,
+    promotion: boolean
 }

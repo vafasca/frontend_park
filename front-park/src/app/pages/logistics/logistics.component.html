@@ -17,9 +17,10 @@
     </div>
     
     
-    <div class="employee-list" >
+    <div class="employee-list">
+
       <div class="search-bar">
-            <input [(ngModel)]="searchTerm" placeholder="Buscar empleado..." />
+            <input [(ngModel)]="searchTerm" (input)="searchEntity()" placeholder="Buscar empleado..." />
             <button (click)="searchEmployees()">Buscar</button>
       </div>
 
@@ -33,14 +34,14 @@
         <div class="header-item">Promotion</div>
         <div class="header-item">Actions</div>
       </div>
-      <div  class="employee-row">
-        <div class="row-item">a</div>
-        <div class="row-item">a</div>
-        <div class="row-item">a</div>
-        <div class="row-item">a</div>
-        <div class="row-item">a</div>
-        <div class="row-item">a</div>
-        <div class="row-item">a</div>
+      <div  class="employee-row" *ngFor="let client of clients">
+        <div class="row-item">{{client.name}}</div>
+        <div class="row-item">{{client.ci}}</div>
+        <div class="row-item">{{client.email}}</div>
+        <div class="row-item">{{client.phone}}</div>
+        <div class="row-item">{{client.age}}</div>
+        <div class="row-item">{{client.height}}</div>
+        <div class="row-item">{{client.promotion}}</div>
         <div class="row-item">
           <!-- Aquí puedes colocar tus opciones de CRUD -->
           <button (click)="editEmployee()">Editar</button>
