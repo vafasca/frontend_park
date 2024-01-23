@@ -1,27 +1,23 @@
     <div class="employee-container">
         <div class="title">Clients</div>
-        <div class="add-employee">
-        <button (click)="addNewEmployee()">Register</button>
-    </div>
 
-    <div  class="add-form">
-        <label for="newName">Nombre:</label>
-        <input id="newName"  />
-    
-        <label for="newCi">CI:</label>
-        <input id="newCi"  />
-    
-        <!-- Agrega otros campos del formulario según sea necesario -->
-    
-        <button (click)="createEmployee()">Crear Cliente</button>
-    </div>
+    <div class="container-form">
+      <form>
+          <input type="text" id="name" name="name" placeholder="Nombre">
+          <input type="text" id="ci" name="ci" placeholder="CI">
+          <input type="email" id="email" name="email" placeholder="Correo electrónico">
+          <input type="tel" id="phone" name="phone" placeholder="Teléfono">
+          <input type="number" id="age" name="age" placeholder="Edad">
+          <input type="number" id="height" name="height" placeholder="Altura">
+          <button type="submit">Ticket</button>
+      </form>
+  </div>
     
     
     <div class="employee-list">
 
       <div class="search-bar">
-            <input [(ngModel)]="searchTerm" (input)="searchEntity()" placeholder="Buscar empleado..." />
-            <button (click)="searchEmployees()">Buscar</button>
+            <input [(ngModel)]="searchTerm" (input)="searchEntity()" placeholder="Buscar empleado name / ci ..." />
       </div>
 
       <div class="employee-header">
@@ -44,7 +40,7 @@
         <div class="row-item">{{client.promotion}}</div>
         <div class="row-item">
           <!-- Aquí puedes colocar tus opciones de CRUD -->
-          <button (click)="editEmployee()">Editar</button>
+          <!-- <button (click)="editEmployee()">Editar</button> -->
           <button (click)="deleteEmployee()">Eliminar</button>
         </div>
       </div>

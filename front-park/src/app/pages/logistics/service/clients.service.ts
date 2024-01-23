@@ -15,4 +15,9 @@ export class ClientService {
   getEmployees():Observable<Client[]>{
     return this.http.get<Client[]>(this.apiURI);
   }
+
+  addEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(this.apiURI, employee);
+  }
+   
 }

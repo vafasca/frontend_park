@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from './service/clients.service';
 import { Client } from './models/clients.interface';
 import { tap } from 'rxjs/operators';
+import { Employee } from 'src/app/login/Models/employees.interface';
 
 @Component({
   selector: 'app-logistics',
@@ -17,16 +18,18 @@ export class LogisticsComponent implements OnInit {
     this.searchTerm = "";
    }
 
-   searchEntity(){
+   searchEntity() {
     console.log(this.searchTerm);
     if (this.searchTerm === "") {
       this.clients = [...this.originalClients];
     } else {
-      this.clients = this.originalClients.filter(client => client.name.toLowerCase().startsWith(this.searchTerm.toLowerCase()));
+      this.clients = this.originalClients.filter(client => 
+        client.name.toLowerCase().startsWith(this.searchTerm.toLowerCase()) ||
+        client.ci.toLowerCase().startsWith(this.searchTerm.toLowerCase())
+      );
     }
   }
   
-
   ngOnInit(): void {
     this.clientSvc.getEmployees().pipe(
       tap((clients: Client[]) => {this.clients = clients; this.originalClients = this.clients;})
@@ -40,8 +43,8 @@ export class LogisticsComponent implements OnInit {
 
   }
 
-  addNewEmployee(){
-
+  addNewEmployee(employee: Employee){
+    this.clientSvc.addEmployee(employee).subscribe(res => {console.log(employee)});
   }
 
   searchEmployees(){

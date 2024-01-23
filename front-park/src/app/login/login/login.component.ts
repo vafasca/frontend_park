@@ -34,16 +34,16 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/logistics']);
           break;
         case 2:
-          this.router.navigate(['/ruta-para-rol-2']);
+          this.router.navigate(['/logistics']);
           break;
         case 3:
-          this.router.navigate(['/ruta-para-rol-2']);
+          this.router.navigate(['/logistics']);
           break;
         case 4:
-          this.router.navigate(['/ruta-para-rol-2']);
+          this.router.navigate(['/logistics']);
           break;
         case 5:
-          this.router.navigate(['/ruta-para-rol-2']);
+          this.router.navigate(['/logistics']);
           break;
         default:
           console.log("Rol no reconocido. No se pudo redirigir a ninguna ruta específica.");

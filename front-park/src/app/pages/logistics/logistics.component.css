@@ -1,63 +1,86 @@
-.employee-list {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-  
-  .employee-header,
-  .employee-row {
-    display: flex;
-    border-bottom: 1px solid #774040;
-    padding: 8px 0;
-  }
-  
-  .header-item,
-  .row-item {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .employee-row:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .row-item {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .employee-header {
-    font-weight: bold;
-  }
-  
-  .employee-row:last-child {
-    border-bottom: none;
-  }
+.employee-container {
 
-  .employee-container {
-    margin-top: 20px;
-    text-align: center; /* Centra el contenido horizontalmente */
-  }
-  
-  .title {
-    font-size: 36px; /* Ajusta el tamaño del título */
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .add-employee {
-    margin-bottom: 10px;
-  }
-  
-  .add-employee button {
-    padding: 10px 20px; /* Ajusta el tamaño del botón */
-    font-size: 16px; /* Ajusta el tamaño del texto del botón */
-  }
-  
-  .employee-list {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #6c757d;
+}
+
+.employee-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.employee-header,
+.employee-row {
+  display: flex;
+  padding: 8px 0;
+}
+
+.header-item,
+.row-item {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+}
+
+.employee-row:hover {
+  background-color: #f5f5f5;
+}
+
+.row-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.employee-header {
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+}
+
+.employee-row:last-child {
+  border-bottom: none;
+}
+
+.container-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+form {
+
+  padding: 20px;
+  border-radius: 8px;
+}
+input {
+  width: 25%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.container-form button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  width: 25%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button:hover {
+  opacity: 0.8;
+}
