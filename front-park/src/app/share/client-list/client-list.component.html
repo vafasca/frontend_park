@@ -1,0 +1,28 @@
+<div class="employee-list">
+
+    <div class="search-bar">
+          <input [(ngModel)]="searchTerm" placeholder="Buscar empleado name / ci ..." />
+    </div>
+
+    <div class="employee-header">
+      <div class="header-item">Name</div>
+      <div class="header-item">CI</div>
+      <div class="header-item">Email</div>
+      <div class="header-item">Telf</div>
+      <div class="header-item">Age</div>
+      <div class="header-item">Height</div>
+      <div class="header-item">Promotion</div>
+    </div>
+
+    <div class="employee-list scrollable">
+      <div class="employee-row" *ngFor="let client of filterClients()" (click)="fillClient(client)">
+      <div class="row-item">{{client.name}}</div>
+      <div class="row-item">{{client.ci}}</div>
+      <div class="row-item">{{client.email}}</div>
+      <div class="row-item">{{client.phone}}</div>
+      <div class="row-item">{{client.age}}</div>
+      <div class="row-item">{{client.height}}</div>
+      <div class="row-item">{{client.promotion}}</div>
+    </div>
+  </div>
+  </div>

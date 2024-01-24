@@ -13,47 +13,6 @@
   color: #6c757d;
 }
 
-.employee-list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
-
-.employee-header,
-.employee-row {
-  display: flex;
-  padding: 8px 0;
-}
-
-.header-item,
-.row-item {
-  flex: 1;
-  text-align: center;
-  padding: 10px;
-}
-
-.employee-row:hover {
-  background-color: #97d3db;
-  cursor: pointer;
-}
-
-.row-item {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.employee-header {
-  font-weight: bold;
-  background-color: #007bff;
-  color: white;
-  border-radius: 5px;
-}
-
-.employee-row:last-child {
-  border-bottom: none;
-}
-
 .container-form {
   display: flex;
   justify-content: center;
@@ -86,11 +45,6 @@ input {
 
 button:hover {
   opacity: 0.8;
-}
-
-.scrollable {
-  max-height: 175px; /* Ajusta este valor a la altura que prefieras */
-  overflow-y: auto;
 }
 
 .logout-button {

@@ -1,0 +1,53 @@
+.employee-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.employee-header,
+.employee-row {
+  display: flex;
+  padding: 8px 0;
+}
+
+.header-item,
+.row-item {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+}
+
+.employee-row:hover {
+  background-color: #97d3db;
+  cursor: pointer;
+}
+
+.row-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.employee-header {
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+}
+
+.employee-row:last-child {
+  border-bottom: none;
+}
+
+.scrollable {
+  max-height: 175px;
+  overflow-y: auto;
+}
+
+input {
+  width: 25%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

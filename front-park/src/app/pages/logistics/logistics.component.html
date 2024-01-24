@@ -3,42 +3,15 @@
   <button class="logout-button" (click)="logout()">Cerrar sesión</button>
   <div class="container-form">
     <form [formGroup]="clientForm" (ngSubmit)="addNewClient()">
-        <input type="text" id="name" name="name" formControlName="name" placeholder="Nombre">
-        <input type="text" id="ci" name="ci" formControlName="ci" placeholder="CI">
-        <input type="email" required id="email" name="email" formControlName="email" placeholder="Correo electrónico">
-        <input type="tel" id="phone" name="phone" formControlName="phone" placeholder="Teléfono">
-        <input type="number" id="age" name="age" formControlName="age" placeholder="Edad">
-        <input type="number" id="height" name="height" formControlName="height" placeholder="Altura">
-        <button type="submit">Ticket</button>
+      <input type="text" id="name" name="name" formControlName="name" placeholder="Nombre">
+      <input type="text" id="ci" name="ci" formControlName="ci" placeholder="CI">
+      <input type="email" required id="email" name="email" formControlName="email" placeholder="Correo electrónico">
+      <input type="tel" id="phone" name="phone" formControlName="phone" placeholder="Teléfono">
+      <input type="number" id="age" name="age" formControlName="age" placeholder="Edad">
+      <input type="number" id="height" name="height" formControlName="height" placeholder="Altura">
+      <button type="submit">Ticket</button>
     </form>
   </div>
-
-  <div class="employee-list">
-
-    <div class="search-bar">
-          <input [(ngModel)]="searchTerm" (input)="searchEntity()" placeholder="Buscar empleado name / ci ..." />
-    </div>
-
-    <div class="employee-header">
-      <div class="header-item">Name</div>
-      <div class="header-item">CI</div>
-      <div class="header-item">Email</div>
-      <div class="header-item">Telf</div>
-      <div class="header-item">Age</div>
-      <div class="header-item">Height</div>
-      <div class="header-item">Promotion</div>
-    </div>
-
-    <div class="employee-list scrollable">
-    <div  class="employee-row" *ngFor="let client of clients" (click)="fillClient(client)">
-      <div class="row-item">{{client.name}}</div>
-      <div class="row-item">{{client.ci}}</div>
-      <div class="row-item">{{client.email}}</div>
-      <div class="row-item">{{client.phone}}</div>
-      <div class="row-item">{{client.age}}</div>
-      <div class="row-item">{{client.height}}</div>
-      <div class="row-item">{{client.promotion}}</div>
-    </div>
-  </div>
-  </div>
+  
+  <app-client-list [clients]="clients" (fillClientEvent)="handleFillClient($event)"></app-client-list>
 </div>

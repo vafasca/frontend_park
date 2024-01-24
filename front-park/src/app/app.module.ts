@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { ClientListComponent } from './share/client-list/client-list.component';
 
 @NgModule({
   declarations: [

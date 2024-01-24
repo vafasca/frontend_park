@@ -4,7 +4,6 @@ import { Client } from './models/clients.interface';
 import { tap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ticket } from './models/ticket.interface';
-import { UserLoggedService } from 'src/app/login/Service/user-logged.service';
 import { ShareCoockieService } from 'src/app/share/share-coockie.service';
 import { Employee } from 'src/app/login/Models/employees.interface';
 import { Router } from '@angular/router';
@@ -21,6 +20,7 @@ export class LogisticsComponent implements OnInit, OnDestroy {
   searchTerm: string;
   clientForm!: FormGroup;
   ticket!: Ticket;
+
   constructor(private clientSvc: ClientService, private fb: FormBuilder, private shareCookie: ShareCoockieService, private router: Router) {
     this.searchTerm = "";
     this.clientForm = this.fb.group({
@@ -32,17 +32,6 @@ export class LogisticsComponent implements OnInit, OnDestroy {
       height: ['', Validators.required]
     });
 
-  }
-
-  searchEntity() {
-    if (this.searchTerm === "") {
-      this.clients = [...this.originalClients];
-    } else {
-      this.clients = this.originalClients.filter(client =>
-        client.name.toLowerCase().startsWith(this.searchTerm.toLowerCase()) ||
-        client.ci.toLowerCase().startsWith(this.searchTerm.toLowerCase())
-      );
-    }
   }
 
   ngOnInit(): void {
@@ -58,7 +47,7 @@ export class LogisticsComponent implements OnInit, OnDestroy {
     ).subscribe();
   }
 
-  fillClient(client: Client) {
+  handleFillClient(client: Client) {
     this.clientForm.setValue({
       name: client.name,
       ci: client.ci,
@@ -72,7 +61,6 @@ export class LogisticsComponent implements OnInit, OnDestroy {
   deleteClient(id: number): void {
     this.clientSvc.deleteClient(id).subscribe();
     this.updateClients();
-    //location.reload();
   }
 
   addNewClient(): void {
@@ -102,7 +90,6 @@ export class LogisticsComponent implements OnInit, OnDestroy {
           this.clientSvc.sendTicket(this.ticket).subscribe();
           alert('Cliente registrado');
           this.updateClients();
-          //location.reload();
         });
       }
     }
@@ -117,8 +104,8 @@ export class LogisticsComponent implements OnInit, OnDestroy {
     ).subscribe();
   }
 
-  logout(): void{
-      this.shareCookie.deleteEmployee();
+  logout(): void {
+    this.shareCookie.deleteEmployee();
     this.router.navigate(['']);
   }
 }
