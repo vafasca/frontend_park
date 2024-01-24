@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ClientListComponent } from './share/client-list/client-list.component';
+import { SharedComponentModule } from './share/shared-component/shared-component.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ClientListComponent } from './share/client-list/client-list.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SharedComponentModule
   ],
   providers: [],
   bootstrap: [AppComponent]
