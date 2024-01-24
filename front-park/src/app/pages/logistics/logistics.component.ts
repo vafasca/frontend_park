@@ -3,6 +3,8 @@ import { ClientService } from './service/clients.service';
 import { Client } from './models/clients.interface';
 import { tap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Ticket } from './models/ticket.interface';
+import { UserLoggedService } from 'src/app/login/Service/user-logged.service';
 
 @Component({
   selector: 'app-logistics',
@@ -15,7 +17,8 @@ export class LogisticsComponent implements OnInit {
   originalClients!: Client[];
   searchTerm: string;
   clientForm!: FormGroup;
-  constructor(private clientSvc: ClientService, private fb:FormBuilder) {
+  ticket!: Ticket;
+  constructor(private clientSvc: ClientService, private fb:FormBuilder, private userId: UserLoggedService) {
     this.searchTerm = "";
     this.clientForm = this.fb.group({
       name: ['', Validators.required],
@@ -62,7 +65,7 @@ export class LogisticsComponent implements OnInit {
 
   deleteClient(id: number): void{
     this.clientSvc.deleteClient(id).subscribe();
-    location.reload();
+    //location.reload();
   }
 
   addNewClient(): void {
@@ -72,15 +75,27 @@ export class LogisticsComponent implements OnInit {
       if (existingClient) {
         this.clientSvc.updateClient(existingClient.id, newClient).subscribe(res => {
 
-          // this.clientSvc.sendTicket(1).subscribe();
+          this.userId.getUser().subscribe(user => {
+            console.log(JSON.stringify(user, null, 2));
+            console.log(JSON.stringify(user, null, 2));
 
+            if(user !== null){
+              this.ticket = ({
+                idEmployee: user,
+                idClient: newClient,
+                status: true
+              })
+            }          
+            ;})
+
+          this.clientSvc.sendTicket(this.ticket).subscribe();
           alert('Cliente actualizado');
-          location.reload();
+          //location.reload();
         });
       } else {
         this.clientSvc.addClient(newClient).subscribe(res => {
           alert('Cliente registrado');
-          location.reload();
+          //location.reload();
         });
       }
     }

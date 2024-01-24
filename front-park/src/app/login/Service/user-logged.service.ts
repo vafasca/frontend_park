@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Employee } from '../Models/employees.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLoggedService {
 
-  private userId = new BehaviorSubject<number | null>(null);
+  private userId = new BehaviorSubject<Employee | null>(null);
 
-  setUserId(id: number){
-    this.userId.next(id);
+  setUser(user: Employee){
+    this.userId.next(user);
   }
 
-  getUserId(){
+  getUser(){
     return this.userId.asObservable();
   }
 

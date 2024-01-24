@@ -11,6 +11,7 @@ import { Ticket } from '../models/ticket.interface';
 export class ClientService {
 
   private apiURI = "http://localhost:8081/api/v1/clients";
+  private apiTicket = "http://localhost:8081/api/v1/tickets";
   constructor(private http: HttpClient) { }
 
   getClients():Observable<Client[]>{
@@ -30,7 +31,7 @@ export class ClientService {
   }
 
   sendTicket(ticket: Ticket): Observable<Ticket>{
-    return this.http.post<Ticket>(this.apiURI, ticket);
+    return this.http.post<Ticket>(this.apiTicket, ticket);
   }
   
 }

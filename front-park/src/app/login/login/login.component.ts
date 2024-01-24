@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
     if (foundEmployee) {
       alert("Credenciales válidas.");
-      this.userId.setUserId(foundEmployee.rol.id);
+      this.userId.setUser(foundEmployee);
       switch (foundEmployee.rol.id) {
         case 1:
           this.router.navigate(['/logistics']);
