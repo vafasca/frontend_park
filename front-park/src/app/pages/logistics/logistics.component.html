@@ -5,7 +5,7 @@
       <form [formGroup]="clientForm" (ngSubmit)="addNewClient()">
           <input type="text" id="name" name="name" formControlName="name" placeholder="Nombre">
           <input type="text" id="ci" name="ci" formControlName="ci" placeholder="CI">
-          <input type="email" id="email" name="email" formControlName="email" placeholder="Correo electrónico">
+          <input type="email" required id="email" name="email" formControlName="email" placeholder="Correo electrónico">
           <input type="tel" id="phone" name="phone" formControlName="phone" placeholder="Teléfono">
           <input type="number" id="age" name="age" formControlName="age" placeholder="Edad">
           <input type="number" id="height" name="height" formControlName="height" placeholder="Altura">
@@ -30,7 +30,8 @@
         <div class="header-item">Promotion</div>
         <div class="header-item">Actions</div>
       </div>
-      <div  class="employee-row" *ngFor="let client of clients">
+      <div class="employee-list scrollable">
+      <div  class="employee-row" *ngFor="let client of clients" (click)="fillClient(client)">
         <div class="row-item">{{client.name}}</div>
         <div class="row-item">{{client.ci}}</div>
         <div class="row-item">{{client.email}}</div>
@@ -39,11 +40,10 @@
         <div class="row-item">{{client.height}}</div>
         <div class="row-item">{{client.promotion}}</div>
         <div class="row-item">
-          <!-- Aquí puedes colocar tus opciones de CRUD -->
-          <!-- <button (click)="editEmployee()">Editar</button> -->
-          <button (click)="deleteEmployee()">Eliminar</button>
+        <button (click)="deleteEmployee()">Eliminar</button>
         </div>
       </div>
+    </div>
     </div>
   </div>
   

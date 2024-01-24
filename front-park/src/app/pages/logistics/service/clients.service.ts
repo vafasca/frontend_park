@@ -16,8 +16,12 @@ export class ClientService {
     return this.http.get<Client[]>(this.apiURI);
   }
 
-  addClient(employee: Client): Observable<Client> {
-    return this.http.post<Client>(this.apiURI, employee);
+  addClient(client: Client): Observable<Client> {
+    return this.http.post<Client>(this.apiURI, client);
   }
    
+  updateClient(id: number, client: Client): Observable<Client> {
+    return this.http.put<Client>(`${this.apiURI}/${id}`, client);
+  }
+  
 }

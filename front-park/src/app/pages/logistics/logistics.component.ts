@@ -12,7 +12,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LogisticsComponent implements OnInit {
 
   clients!: Client[];
-  client!: Client;
   originalClients!: Client[];
   searchTerm: string;
   clientForm!: FormGroup;
@@ -42,23 +41,53 @@ export class LogisticsComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.getClients();
+  }
+
+  getClients(): void{
     this.clientSvc.getClients().pipe(
       tap((clients: Client[]) => {this.clients = clients; this.originalClients = this.clients;})
     ).subscribe();
   }
-  editClient(){
-    console.log("editando")
+
+  fillClient(client: Client){
+    console.log("editando: "+client.id)
+    this.clientForm.setValue({
+      name: client.name,
+      ci: client.ci,
+      email: client.email,
+      phone: client.phone,
+      age: client.age,
+      height: client.height
+    });
   }
 
   deleteEmployee(){
 
   }
 
-  addNewClient(): void{
-    if(this.clientForm.valid){
-        this.clientSvc.addClient(this.clientForm.value).subscribe(res => {console.log(res);alert("Cliente Registrado"); this.updateClients();})
+  addNewClient(): void {
+    if (this.clientForm.valid) {
+      const newClient = this.clientForm.value;
+      const existingClient = this.clients.find(client => client.ci === newClient.ci);
+      if (existingClient) {
+        console.log("ACTUALIZA: "+existingClient.id)
+        this.clientSvc.updateClient(existingClient.id, newClient).subscribe(res => {
+          console.log("cliente actualizado"+res);
+          alert('Cliente actualizado');
+          location.reload();
+        });
+      } else {
+        this.clientSvc.addClient(newClient).subscribe(res => {
+          console.log(res);
+          alert('Cliente registrado');
+          location.reload();
+        });
+      }
     }
   }
+  
+  
 
   updateClients(): void {
     this.clientSvc.getClients().pipe(
