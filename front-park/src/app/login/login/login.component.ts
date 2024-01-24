@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Employee } from '../Models/employees.interface';
 import { EmployeeService } from '../Service/employee.service';
 import { UserLoggedService } from '../Service/user-logged.service';
+import { ShareCoockieService } from 'src/app/share/share-coockie.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { UserLoggedService } from '../Service/user-logged.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private employeeSvc: EmployeeService, private router: Router,private userId: UserLoggedService) { }
+  constructor(private employeeSvc: EmployeeService, private router: Router, private shareCookie: ShareCoockieService) { }
   employees!: Employee[];
 
   ngOnInit(): void {
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
 
     if (foundEmployee) {
       alert("Credenciales válidas.");
-      this.userId.setUser(foundEmployee);
+      this.shareCookie.setEmployee(foundEmployee);
       switch (foundEmployee.rol.id) {
         case 1:
           this.router.navigate(['/logistics']);

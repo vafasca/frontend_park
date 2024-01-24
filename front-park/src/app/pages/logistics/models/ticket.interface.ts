@@ -3,6 +3,6 @@ import { Client } from "./clients.interface";
 
 export interface Ticket{
     status: boolean,
-    idEmployee: Employee,
-    idClient: Client
+    employee: Employee,
+    client: Client
 }

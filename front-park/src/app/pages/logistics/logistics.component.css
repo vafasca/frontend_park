@@ -1,5 +1,4 @@
 .employee-container {
-
   text-align: center;
   background-color: #f8f9fa;
   border-radius: 5px;
@@ -61,11 +60,12 @@
   align-items: center;
   height: 80%;
 }
-form {
 
+form {
   padding: 20px;
   border-radius: 8px;
 }
+
 input {
   width: 25%;
   padding: 10px;
@@ -73,6 +73,7 @@ input {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
 .container-form button {
   background-color: #4CAF50;
   color: white;
@@ -82,10 +83,28 @@ input {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
 button:hover {
   opacity: 0.8;
 }
+
 .scrollable {
   max-height: 175px; /* Ajusta este valor a la altura que prefieras */
   overflow-y: auto;
+}
+
+.logout-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
 }
