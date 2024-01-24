@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/login/Models/employees.interface';
 import { Client } from '../models/clients.interface';
+import { Ticket } from '../models/ticket.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,14 @@ export class ClientService {
    
   updateClient(id: number, client: Client): Observable<Client> {
     return this.http.put<Client>(`${this.apiURI}/${id}`, client);
+  }
+
+  deleteClient(id: number): Observable<Client>{
+    return this.http.delete<Client>(`${this.apiURI}/${id}`);
+  }
+
+  sendTicket(ticket: Ticket): Observable<Ticket>{
+    return this.http.post<Ticket>(this.apiURI, ticket);
   }
   
 }

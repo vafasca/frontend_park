@@ -4,6 +4,7 @@ import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Employee } from '../Models/employees.interface';
 import { EmployeeService } from '../Service/employee.service';
+import { UserLoggedService } from '../Service/user-logged.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { EmployeeService } from '../Service/employee.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private employeeSvc: EmployeeService, private router: Router) { }
+  constructor(private employeeSvc: EmployeeService, private router: Router,private userId: UserLoggedService) { }
   employees!: Employee[];
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
 
     if (foundEmployee) {
       alert("Credenciales válidas.");
+      this.userId.setUserId(foundEmployee.rol.id);
       switch (foundEmployee.rol.id) {
         case 1:
           this.router.navigate(['/logistics']);

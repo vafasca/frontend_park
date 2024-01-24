@@ -29,7 +29,6 @@ export class LogisticsComponent implements OnInit {
    }
 
    searchEntity() {
-    console.log(this.searchTerm);
     if (this.searchTerm === "") {
       this.clients = [...this.originalClients];
     } else {
@@ -51,7 +50,6 @@ export class LogisticsComponent implements OnInit {
   }
 
   fillClient(client: Client){
-    console.log("editando: "+client.id)
     this.clientForm.setValue({
       name: client.name,
       ci: client.ci,
@@ -62,8 +60,9 @@ export class LogisticsComponent implements OnInit {
     });
   }
 
-  deleteEmployee(){
-
+  deleteClient(id: number): void{
+    this.clientSvc.deleteClient(id).subscribe();
+    location.reload();
   }
 
   addNewClient(): void {
@@ -71,15 +70,15 @@ export class LogisticsComponent implements OnInit {
       const newClient = this.clientForm.value;
       const existingClient = this.clients.find(client => client.ci === newClient.ci);
       if (existingClient) {
-        console.log("ACTUALIZA: "+existingClient.id)
         this.clientSvc.updateClient(existingClient.id, newClient).subscribe(res => {
-          console.log("cliente actualizado"+res);
+
+          // this.clientSvc.sendTicket(1).subscribe();
+
           alert('Cliente actualizado');
           location.reload();
         });
       } else {
         this.clientSvc.addClient(newClient).subscribe(res => {
-          console.log(res);
           alert('Cliente registrado');
           location.reload();
         });
@@ -87,8 +86,6 @@ export class LogisticsComponent implements OnInit {
     }
   }
   
-  
-
   updateClients(): void {
     this.clientSvc.getClients().pipe(
       tap((clients: Client[]) => {
@@ -96,13 +93,5 @@ export class LogisticsComponent implements OnInit {
         this.originalClients = [...this.clients];
       })
     ).subscribe();
-  }
-
-  searchEmployees(){
-
-  }
-
-  createEmployee(){
-
   }
 }
