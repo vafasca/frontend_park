@@ -18,22 +18,10 @@
           <th>Nombre de la promoción</th>
           <th>Descuento</th>
         </tr>
-        
-        <!-- Aquí puedes agregar las filas de la tabla con los datos de las promociones -->
-        <tr>
-          <td>Promoción de verano</td>
-          <td>Verano2024</td>
-          <td>15%</td>
-        </tr>
-        <tr>
-          <td>Promoción de invierno</td>
-          <td>Invierno2024</td>
-          <td>20%</td>
-        </tr>
-        <tr>
-          <td>Promoción de primavera</td>
-          <td>Primavera2024</td>
-          <td>10%</td>
+        <tr *ngFor="let promotions of promotion">
+          <td>{{promotions.description}}</td>
+          <td>{{promotions.nameDescription}}</td>
+          <td>{{promotions.percentageDiscount}}</td>
         </tr>
       </table>
     </div>

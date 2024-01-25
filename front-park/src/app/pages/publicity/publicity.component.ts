@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../logistics/service/clients.service';
 import { Client } from '../logistics/models/clients.interface';
 import { tap } from 'rxjs/operators';
+import { PromotionService } from './service/promotion.service';
+import { Promotion } from '../logistics/models/promotion.interface';
 
 @Component({
   selector: 'app-publicity',
@@ -9,20 +11,19 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./publicity.component.css']
 })
 export class PublicityComponent implements OnInit {
+  promotion!: Promotion[];
 
-  // clients!: Client[];
-  // originalClients!: Client[];
-
-  constructor(private clientSvc: ClientService) { }
+  constructor(private promotionSvc: PromotionService) { }
 
   ngOnInit(): void {
-   // this.getClients();
+   this.getPromotion();
   }
 
-  // getClients(): void {
-  //   this.clientSvc.getClients().pipe(
-  //     tap((clients: Client[]) => { this.clients = clients; this.originalClients = this.clients; })
-  //   ).subscribe();
-  // }
+  getPromotion(){
+    this.promotionSvc.getPromotions().subscribe((promotions: Promotion[]) => {
+      this.promotion = promotions;
+      console.log(JSON.stringify(this.promotion));
+    });
+  }
 
 }

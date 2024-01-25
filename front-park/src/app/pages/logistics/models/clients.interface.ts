@@ -1,3 +1,4 @@
+import { Promotion } from "./promotion.interface";
 
 export interface Client {
     name: string,
@@ -6,6 +7,6 @@ export interface Client {
     phone: string,
     age: number,
     height: number,
-    promotion: boolean,
+    promotion: Promotion,
     id: number
 }
