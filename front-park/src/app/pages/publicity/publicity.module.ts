@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PublicityRoutingModule } from './publicity-routing.module';
 import { PublicityComponent } from './publicity.component';
+import { SharedComponentModule } from 'src/app/share/shared-component/shared-component.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PublicityComponent } from './publicity.component';
   ],
   imports: [
     CommonModule,
-    PublicityRoutingModule
+    PublicityRoutingModule,
+    SharedComponentModule
   ]
 })
 export class PublicityModule { }

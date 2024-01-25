@@ -1,1 +1,42 @@
-<p>publicity works!</p>
+<div class="container">
+    <div class="form-container">
+      <form>
+        <label for="description">Descripción:</label><br>
+        <input type="text" id="description" name="description"><br>
+        <label for="namePromotion">Nombre de la promoción:</label><br>
+        <input type="text" id="namePromotion" name="namePromotion"><br>
+        <label for="descuento">Descuento:</label><br>
+        <input type="text" id="descuento" name="descuento"><br>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  
+    <div class="table-container">
+      <table>
+        <tr id="header">
+          <th>Descripción</th>
+          <th>Nombre de la promoción</th>
+          <th>Descuento</th>
+        </tr>
+        
+        <!-- Aquí puedes agregar las filas de la tabla con los datos de las promociones -->
+        <tr>
+          <td>Promoción de verano</td>
+          <td>Verano2024</td>
+          <td>15%</td>
+        </tr>
+        <tr>
+          <td>Promoción de invierno</td>
+          <td>Invierno2024</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>Promoción de primavera</td>
+          <td>Primavera2024</td>
+          <td>10%</td>
+        </tr>
+      </table>
+    </div>
+    
+  </div>
+  <app-client-list></app-client-list>

@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    height: 50%;
+  }
+
+
+  
+  .form-container, .table-container {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  table #header {
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  }
+  
+  th {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  input {
+    width: 25%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    width: 25%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
