@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       this.shareCookie.setEmployee(foundEmployee);
       switch (foundEmployee.rol.id) {
         case 1:
-          this.router.navigate(['/logistics']);
+          this.router.navigate(['/publicity']);
           break;
         case 2:
           this.router.navigate(['/logistics']);

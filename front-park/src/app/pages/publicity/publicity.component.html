@@ -1,30 +1,35 @@
 <div class="container">
     <div class="form-container">
-      <form>
+      <form [formGroup]="promotionForm" (ngSubmit)="addNewPromotion()">
         <label for="description">Descripción:</label><br>
-        <input type="text" id="description" name="description"><br>
+        <input type="text" id="description" name="description" formControlName="description"><br>
         <label for="namePromotion">Nombre de la promoción:</label><br>
-        <input type="text" id="namePromotion" name="namePromotion"><br>
+        <input type="text" id="namePromotion" name="namePromotion" formControlName="nameDescription"><br>
         <label for="descuento">Descuento:</label><br>
-        <input type="text" id="descuento" name="descuento"><br>
+        <input type="text" id="discount" name="discount" formControlName="percentageDiscount"><br>
         <button type="submit">Enviar</button>
       </form>
     </div>
   
-    <div class="table-container">
+    <div >
       <table>
         <tr id="header">
           <th>Descripción</th>
           <th>Nombre de la promoción</th>
           <th>Descuento</th>
         </tr>
-        <tr *ngFor="let promotions of promotion">
+      </table>
+      <div class="table-container">
+      <table>
+        <tr *ngFor="let promotions of promotions" (click)="printToConsole(promotions)">
           <td>{{promotions.description}}</td>
           <td>{{promotions.nameDescription}}</td>
           <td>{{promotions.percentageDiscount}}</td>
         </tr>
       </table>
+      </div>
     </div>
     
   </div>
-  <app-client-list></app-client-list>
+  <button (click)="adjuntar()">Imprimir Datos Seleccionados</button>
+  <app-client-list (fillClientEvent)="datos($event)"></app-client-list>
