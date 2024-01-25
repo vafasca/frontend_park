@@ -33,11 +33,12 @@ button {
   background-color: #4CAF50;
   color: white;
   cursor: pointer;
-  width: 25%;
-  padding: 10px;
+  width: 15%;
+  padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
 
 .table-container {
   overflow-y: auto;

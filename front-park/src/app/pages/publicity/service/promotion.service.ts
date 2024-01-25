@@ -18,4 +18,12 @@ export class PromotionService {
   addPromotion(promotion: Promotion):Observable<Promotion>{
     return this.http.post<Promotion>(this.apiURI, promotion);
   }
+
+  deletePromotion(id: number): Observable<Promotion>{
+    return this.http.delete<Promotion>(`${this.apiURI}/${id}`);
+  }
+
+  updatePromotion(id: number, promotion: Promotion): Observable<Promotion> {
+    return this.http.put<Promotion>(`${this.apiURI}/${id}`, promotion);
+  }
 }
