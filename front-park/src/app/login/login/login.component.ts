@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/logistics']);
           break;
         case 3:
-          this.router.navigate(['/publicity']);
+          this.router.navigate(['/operators']);
           break;
         case 4:
           this.router.navigate(['/logistics']);

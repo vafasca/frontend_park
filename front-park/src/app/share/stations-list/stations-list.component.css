@@ -1,0 +1,17 @@
+.attraction-details {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .attraction-detail {
+    flex: 1;
+    display: flex;
+
+    margin-right: 150px;
+  }
+  
+  .attraction-label {
+    font-weight: bold;
+    width: 100%; /* Asegura que las etiquetas ocupen el 100% del ancho */
+  }
+  

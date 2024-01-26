@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Station } from 'src/app/pages/operators/models/station.interface';
+import { StationService } from 'src/app/pages/operators/service/station.service';
 
 @Component({
   selector: 'app-stations-list',
@@ -7,39 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StationsListComponent implements OnInit {
 
-  estaciones = [
-    {
-      nombre: 'Estacion 1',
-      atracciones: [
-        {
-          nombre: 'Atraccion 1',
-          maquina: 'Maquina 1'
-        },
-        {
-          nombre: 'Atraccion 2',
-          maquina: 'Maquina 2'
-        }
-      ]
-    },
-    {
-      nombre: 'Estacion 2',
-      atracciones: [
-        {
-          nombre: 'Atraccion 3',
-          maquina: 'Maquina 3'
-        },
-        {
-          nombre: 'Atraccion 4',
-          maquina: 'Maquina 4'
-        }
-      ]
-    },
-    // Más estaciones...
-  ];
+estaciones!: Station[];
 
-  constructor() { }
+  constructor(private stationSvc: StationService) { }
 
   ngOnInit(): void {
+    this.stationSvc.getTicket().subscribe((data: Station[]) => {
+      this.estaciones = data;
+    });
   }
+  
+  
 
 }
