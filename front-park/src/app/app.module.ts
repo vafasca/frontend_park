@@ -16,8 +16,7 @@ import { StationsListComponent } from './share/stations-list/stations-list.compo
   declarations: [
     AppComponent,
     LoginComponent,
-    ModalComponent,
-    StationsListComponent
+    ModalComponent
   ],
   imports: [
     BrowserModule,

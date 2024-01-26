@@ -1,1 +1,18 @@
-<p>stations-list works!</p>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let estacion of estaciones">
+      <mat-expansion-panel-header>
+        {{ estacion.nombre }}
+      </mat-expansion-panel-header>
+  
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let atraccion of estacion.atracciones">
+          <mat-expansion-panel-header>
+            {{ atraccion.nombre }}
+          </mat-expansion-panel-header>
+  
+          <p>Máquina: {{ atraccion.maquina }}</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
