@@ -11,11 +11,13 @@ import { SharedComponentModule } from './share/shared-component/shared-component
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalComponent } from './share/modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StationsListComponent } from './share/stations-list/stations-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ModalComponent
+    ModalComponent,
+    StationsListComponent
   ],
   imports: [
     BrowserModule,
