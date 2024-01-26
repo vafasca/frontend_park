@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PromotionService } from './service/promotion.service';
 import { Promotion } from '../logistics/models/promotion.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,7 +8,8 @@ import { TicketService } from '../logistics/service/ticket.service';
 import { Ticket } from '../logistics/models/ticket.interface';
 import { Employee } from 'src/app/login/Models/employees.interface';
 import { ShareCoockieService } from 'src/app/share/share-coockie.service';
-
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from 'src/app/share/modal/modal.component';
 @Component({
   selector: 'app-publicity',
   templateUrl: './publicity.component.html',
@@ -20,8 +21,9 @@ export class PublicityComponent implements OnInit {
   client!: Client;
   promotion!: Promotion;
   ticket!: Ticket;
+  @ViewChild('content') modalContent: any;
 
-  constructor(private promotionSvc: PromotionService, private fb: FormBuilder, private clientSvc: ClientService, private ticketSvc: TicketService, private shareCookie: ShareCoockieService) { 
+  constructor(private dialog: MatDialog ,private promotionSvc: PromotionService, private fb: FormBuilder, private clientSvc: ClientService, private ticketSvc: TicketService, private shareCookie: ShareCoockieService) { 
     this.promotionForm = this.fb.group({
       description: ['', Validators.required],
       nameDescription: ['', Validators.required],
@@ -90,4 +92,14 @@ export class PublicityComponent implements OnInit {
     });
   }
 
+  openModal(id: number) {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '300px',
+      height: '300px',
+      data: { id: id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
 }

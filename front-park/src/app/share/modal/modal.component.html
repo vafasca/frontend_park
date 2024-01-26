@@ -1,0 +1,13 @@
+<div>
+  <table class="mi-tabla">
+    <tr>
+      <th>Status</th>
+      <th>Fecha</th>
+    </tr>
+    <tr *ngFor="let ticket of ticketsData">
+      <td>{{ticket.status}}</td>
+      <td>{{ticket.date | date: 'yyyy-MM-dd HH:mm:ss'}}</td> <!-- Utiliza el pipe 'date', no 'Date' -->
+    </tr>
+  </table>
+  <button (click)="cerrarModal()">Salir</button>
+</div>

@@ -4,5 +4,6 @@ import { Client } from "./clients.interface";
 export interface Ticket{
     status: boolean,
     employee: Employee,
-    client: Client
+    client: Client,
+    date?: Date
 }

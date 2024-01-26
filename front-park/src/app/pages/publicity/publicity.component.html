@@ -33,4 +33,4 @@
     </div>
     
   </div>
-  <app-client-list (fillClientEvent)="datos($event)"></app-client-list>
+  <app-client-list (fillClientEvent)="datos($event)" (click)="openModal(client.id)"></app-client-list>

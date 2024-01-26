@@ -8,18 +8,23 @@ import { LoginComponent } from './login/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ClientListComponent } from './share/client-list/client-list.component';
 import { SharedComponentModule } from './share/shared-component/shared-component.module';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { ModalComponent } from './share/modal/modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    SharedComponentModule
+    SharedComponentModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
